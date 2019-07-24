@@ -33,9 +33,9 @@ namespace Repository
             SqlCommand comando = Conexao.Conectar();
             comando.CommandText = @"DELETE FROM clientes WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
-            int quantidadeafetada = comando.ExecuteNonQuery();
+            int quantidadeAfetada = comando.ExecuteNonQuery();
             comando.Connection.Close();
-            return quantidadeafetada == 1;
+            return quantidadeAfetada == 1;
         }
 
         public bool Alterar(Cliente cliente)
@@ -69,7 +69,7 @@ namespace Repository
             cliente.Logradouro AS 'ClienteLogradouro',
             cliente.Cep AS 'ClienteCep'
             FROM clientes 
-            INNER JOIN cidades ON (cliente.id_cidade = cidade.id";
+            INNER JOIN cidades ON (cliente.id_cidade = cidade.id)";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
