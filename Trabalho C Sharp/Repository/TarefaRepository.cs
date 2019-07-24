@@ -14,7 +14,8 @@ namespace Repository
         public int Inserir(Tarefa tarefa)
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"INSERT INTO tarefas (id_usuario_responsavel, id_projeto, id_categoria, titulo, descricao, duracao) OUTPUT INSERTED.ID VALUES (@ID_USUARIO_RESPONSAVEL, @ID_PROJETO, @ID_CATEGORIA, @TITULO, @DESCRICAO, @DURACAO)";
+            comando.CommandText = @"INSERT INTO tarefas (id_usuario_responsavel, id_projeto, id_categoria, titulo, descricao, duracao)
+            OUTPUT INSERTED.ID VALUES (@ID_USUARIO_RESPONSAVEL, @ID_PROJETO, @ID_CATEGORIA, @TITULO, @DESCRICAO, @DURACAO)";
             comando.Parameters.AddWithValue("@ID_USUARIO_RESPONSAVEL", tarefa.Id_Usuario_Responsavel);
             comando.Parameters.AddWithValue("@ID_PROJETO", tarefa.Id_Projeto);
             comando.Parameters.AddWithValue("@ID_CATEGORIA", tarefa.Id_Categoria);
@@ -39,7 +40,8 @@ namespace Repository
         public bool Alterar(Tarefa tarefa)
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"UPDATE tarefas SET id_usuario_responsavel = @ID_USUARIO_RESPONSAVEL, id_projeto = @ID_PROJETO,  id_categoria = @ID_CATEGORIA, titulo = @TITULO, descricao = @DESCRICAO, duracao = @DURACAO WHERE id = @ID";
+            comando.CommandText = @"UPDATE tarefas SET id_usuario_responsavel = @ID_USUARIO_RESPONSAVEL, id_projeto = @ID_PROJETO,  id_categoria = @ID_CATEGORIA,
+            titulo = @TITULO, descricao = @DESCRICAO, duracao = @DURACAO WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", tarefa.Id);
             comando.Parameters.AddWithValue("@ID_USUARIO_RESPONSAVEL", tarefa.Id_Usuario_Responsavel);
             comando.Parameters.AddWithValue("@ID_PROJETO", tarefa.Id_Projeto);
