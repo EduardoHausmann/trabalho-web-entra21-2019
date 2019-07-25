@@ -8,8 +8,11 @@ namespace Model
 {
     public class Cidade
     {
-        public int id;
-        public string nome;
+        public int Id;
+        public string Nome;
         public int NumeroHabitantes;
+
+        public int IdEstado;
+        public Estado Estado;
     }
 }

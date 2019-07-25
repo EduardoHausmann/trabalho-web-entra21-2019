@@ -18,6 +18,6 @@ namespace Model
         public string Logradouro;
         public string Cep;
 
-        public Cidade cidade;
+        public Cidade Cidade;
     }
 }

@@ -18,7 +18,6 @@
     <thead>
         <tr>
             <th>Código</th>
-            <th>Cidade</th>
             <th>Nome</th>
             <th>Cpf</th>
             <th>Data de Nascimento</th>
@@ -26,6 +25,7 @@
             <th>Complemento</th>
             <th>Logradouro</th>
             <th>Cep</th>
+            <th>Cidade</th>
         </tr>
     </thead>
     <tbody>
@@ -33,7 +33,6 @@
         {
             <tr>
                 <td>@cliente.Id</td>
-                <td>@cliente.cidade.Nome</td>
                 <td>@cliente.Nome</td>
                 <td>@cliente.Cpf</td>
                 <td>@cliente.Data_Nascimento</td>
@@ -41,6 +40,7 @@
                 <td>@cliente.Complemento</td>
                 <td>@cliente.Logradouro</td>
                 <td>@cliente.Cep</td>
+                <td>@cliente.Cidade.Nome</td>
                 <td>
                     <a href="/cliente/editar?id=@cliente.Id" class="btn btn-primary">
                         <i class="fas fa-pen"></i> Editar
@@ -55,7 +55,6 @@
     <tfoot>
         <tr>
             <th>Código</th>
-            <th>Cidade</th>
             <th>Nome</th>
             <th>Cpf</th>
             <th>Data de Nascimento</th>
@@ -63,6 +62,7 @@
             <th>Complemento</th>
             <th>Logradouro</th>
             <th>Cep</th>
+            <th>Cidade</th>
         </tr>
     </tfoot>
 </table>

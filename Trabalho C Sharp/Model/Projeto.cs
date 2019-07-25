@@ -14,6 +14,6 @@ namespace Model
         public DateTime Data_Criacao;
         public DateTime Data_Finalizacao;
 
-        public Cliente cliente;
+        public Cliente Cliente;
     }
 }

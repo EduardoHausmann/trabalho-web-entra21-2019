@@ -11,7 +11,7 @@ CREATE TABLE cidades(
 	FOREIGN KEY(id_estado) REFERENCES estados(id),
 
 	nome VARCHAR(20),
-	numero_habitacao INT
+	numero_habitantes INT
 );
 
 CREATE TABLE clientes(
@@ -21,7 +21,7 @@ CREATE TABLE clientes(
 	FOREIGN KEY(id_cidade) REFERENCES cidades(id),
 
 	nome VARCHAR(50),
-	cfp VARCHAR(50),
+	cpf VARCHAR(50),
 	data_nascimento DATETIME2(7),
 	numero INT,
 	complemento NCHAR(10),
