@@ -21,7 +21,7 @@
                 <label for="campo-estado">Estado</label>
                 <select class="form-control" name="estado">
                     <option disabled="disabled" selected="selected">Selecione um Estado</option>
-                    @foreach (Model.Estado estado in ViewBag.Estadoss)
+                    @foreach (Model.Estado estado in ViewBag.Estados)
                     {
                         <option value="@estado.Id">@estado.Nome</option>
                     }
