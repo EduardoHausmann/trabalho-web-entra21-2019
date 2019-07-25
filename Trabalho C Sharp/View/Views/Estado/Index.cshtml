@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
-<title> Lista de estados </title>
+<title> Lista de Estados </title>
 <h3 class="text-center mb-3 mt-3 text-info">Lista de Estados</h3>
 
 <div class="row">
@@ -34,12 +34,12 @@
         @foreach (Model.Estado estado in ViewBag.Estados)
         {
             <tr>
-                <td>@estado.id</td>
-                <td>@estado.nome</td>
-                <td>estado.sigla</td>
+                <td>@estado.Id</td>
+                <td>@estado.Nome</td>
+                <td>@estado.Sigla</td>
                 <td>
-                    <a href="/categoria/editar?id=@estado.id" class="btn btn-primary"><i class="fas fa-pen"></i> Editar</a>
-                    <a href="/categoria/apagar?id=@estado.id" class="btn btn-danger"><i class="fas fa-trash"></i>Apagar</a>
+                    <a href="/categoria/editar?id=@estado.Id" class="btn btn-primary"><i class="fas fa-pen"></i> Editar</a>
+                    <a href="/categoria/apagar?id=@estado.Id" class="btn btn-danger"><i class="fas fa-trash"></i>Apagar</a>
                 </td>
             </tr>
         }

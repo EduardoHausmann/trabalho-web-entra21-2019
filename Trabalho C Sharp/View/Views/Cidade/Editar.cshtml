@@ -1,17 +1,19 @@
 ﻿
 @{
-    ViewBag.Title = "Cadastro";
+    ViewBag.Title = "Editar";
 }
 
-<title>Cadastro de Cidade</title>
-<h3 class="text-center mb-3 mt-3 text-info">Cadastro de Cidades</h3>
+<title>Editar Cidade</title>
+<h3 class="text-center mb-3 mt-3 text-info">Edição de Cidade</h3>
 
-<form action="/Cidade/store" method="post">
+<form action="/cidade/update" method="post">
+    <input type="hidden" name="id" value="@ViewBag.Cidade.Id" />
+
     <div class="row">
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-nome">Nome</label>
-                <input type="text" name="nome" class="form-control" id="campo-nome" />
+                <input type="text" name="nome" class="form-control" id="campo-nome" value="@ViewBag.Cidade.Nome" />
             </div>
         </div>
     </div>
@@ -21,9 +23,16 @@
                 <label for="campo-estado">Estado</label>
                 <select class="form-control" name="estado">
                     <option disabled="disabled" selected="selected">Selecione um Estado</option>
-                    @foreach (Model.Estado estado in ViewBag.Estadoss)
+                    @foreach (Model.Estado estado in ViewBag.Estados)
                     {
-                        <option value="@estado.Id">@estado.Nome</option>
+                        if (estado.Id == ViewBag.Cidade.IdEStado)
+                        {
+                            <option value="@estado.Id" selected="selected">@estado.Nome</option>
+                        }
+                        else
+                        {
+                            <option value="@estado.Id">@estado.Nome</option>
+                        }
                     }
                 </select>
             </div>
@@ -44,6 +53,3 @@
         </div>
     </div>
 </form>
-
-
-

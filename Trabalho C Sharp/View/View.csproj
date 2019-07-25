@@ -225,10 +225,10 @@
     <Content Include="Views\Cliente\Editar.cshtml" />
     <Content Include="Views\Cidade\Cadastro.cshtml" />
     <Content Include="Views\Cidade\Index.cshtml" />
-    <Content Include="Views\Cidade\Update.cshtml" />
     <Content Include="Views\Estado\Cadastro.cshtml" />
     <Content Include="Views\Estado\Editar.cshtml" />
     <Content Include="Views\Estado\Index.cshtml" />
+    <Content Include="Views\Cidade\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
