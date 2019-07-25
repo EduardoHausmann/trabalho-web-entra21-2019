@@ -67,7 +67,7 @@ namespace Repository
         public bool Alterar(Categoria categoria)
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"UPDATE categorias SET nome = @NOME WHERE id = @ID_CIDADE, ";
+            comando.CommandText = @"UPDATE categorias SET nome = @NOME WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", categoria.Id);
             comando.Parameters.AddWithValue("@NOME", categoria.Nome);
             int quantidadeAfetada = comando.ExecuteNonQuery();
@@ -79,7 +79,7 @@ namespace Repository
         {
             SqlCommand comando = Conexao.Conectar();
             comando.CommandText = @"DELETE FROM categorias WHERE id = @ID";
-            comando.Parameters.AddWithValue("@Id", id);
+            comando.Parameters.AddWithValue("@ID", id);
             int quantidadeAfetada = comando.ExecuteNonQuery();
             comando.Connection.Close();
             return quantidadeAfetada == 1;

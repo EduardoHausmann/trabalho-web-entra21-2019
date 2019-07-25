@@ -22,29 +22,50 @@ namespace View.Controllers
         public ActionResult Index()
         {
             List<Cidade> cidades = repository.ObterTodos();
-            ViewBag.Estados = cidades;
+            ViewBag.Cidades = cidades;
 
             return View();
         }
+
         public ActionResult Cadastro()
         {
+            EstadoRepository estadoRepository = new EstadoRepository();
+            List<Estado> estados = new List<Estado>();
+            ViewBag.Estados = estados;
+
             return View();
         }
 
+        public ActionResult Update(int id, string nome, int numero_habitantes, int estado)
+        {
+            Cidade cidade = new Cidade();
+            cidade.Id = id;
+            cidade.Nome = nome;
+            cidade.NumeroHabitantes = numero_habitantes;
+            cidade.IdEstado = estado;
 
+            repository.Alterar(cidade);
+            return RedirectToAction("Index");
+        }
 
         public ActionResult Editar(int id)
         {
             Cidade cidade = repository.ObterPeloId(id);
             ViewBag.Estado = cidade;
+
+            EstadoRepository estadoRepository = new EstadoRepository();
+            List<Estado> estados = new List<Estado>();
+            ViewBag.Estados = estados;
+
             return View();
         }
 
-        public ActionResult Update(int id, string nome, int numhabitacao)
+        public ActionResult Store(string nome, int numero_habitantes, int estado)
         {
             Cidade cidade = new Cidade();
             cidade.Nome = nome;
-            cidade.NumeroHabitantes = numhabitacao;
+            cidade.NumeroHabitantes = numero_habitantes;
+            cidade.IdEstado = estado;
 
             repository.Alterar(cidade);
             return RedirectToAction("Index");

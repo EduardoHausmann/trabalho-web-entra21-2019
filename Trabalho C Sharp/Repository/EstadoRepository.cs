@@ -46,7 +46,7 @@ namespace Repository
         public Estado ObterPeloId(int id)
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"SELECT * FROM estados WHERE id = @Id";
+            comando.CommandText = @"SELECT * FROM estados WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             DataTable tabela = new DataTable();
@@ -82,7 +82,7 @@ namespace Repository
         {
             SqlCommand comando = Conexao.Conectar();
             comando.CommandText = @"DELETE FROM estados WHERE id = @ID";
-            comando.Parameters.AddWithValue("@Id", id);
+            comando.Parameters.AddWithValue("@ID", id);
             int quantidadeAfetada = comando.ExecuteNonQuery();
             comando.Connection.Close();
             return quantidadeAfetada == 1;

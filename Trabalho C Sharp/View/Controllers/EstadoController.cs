@@ -51,6 +51,7 @@ namespace View.Controllers
            Estado estado = new Estado();
             estado.Id = id;
            estado.Nome = nome;
+            estado.Sigla = sigla;
 
             repository.Alterar(estado);
             return RedirectToAction("Index");

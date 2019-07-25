@@ -14,10 +14,11 @@ namespace Repository
         public int Inserir(Projeto projeto)
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"INSERT INTO projetos (nome, data_criacao, data_finalizacao) OUTPUT INSERTED.ID VALUES (@NOME, @DATA_CRIACAO, @DATA_FINALIZACAO)";
+            comando.CommandText = @"INSERT INTO projetos (nome, data_criacao, data_finalizacao, id_cliente) OUTPUT INSERTED.ID VALUES (@NOME, @DATA_CRIACAO, @DATA_FINALIZACAO, @ID_CLIENTE)";
             comando.Parameters.AddWithValue("@NOME", projeto.Nome);
             comando.Parameters.AddWithValue("@DATA_CRIACAO", projeto.Data_Criacao);
             comando.Parameters.AddWithValue("@DATA_FINALIZACAO", projeto.Data_Finalizacao);
+            comando.Parameters.AddWithValue("ID_CLIENTE", projeto.Id_Cliente);
             int id = Convert.ToInt32(comando.ExecuteScalar());
             comando.Connection.Close();
 
