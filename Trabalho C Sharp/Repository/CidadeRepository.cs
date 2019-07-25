@@ -11,44 +11,65 @@ namespace Repository
 {
     public class CidadeRepository
     {
-        public List<Cidade> ObterTodos()
-        {
-            SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"SELECT * FROM cidades";
-            DataTable tabela = new DataTable();
-            tabela.Load(comando.ExecuteReader());
-            List<Cidade> cidades = new List<Cidade>();
-
-            foreach (DataRow linha in tabela.Rows)
-            {
-               Cidade cidade = new Cidade();
-                cidade.id = Convert.ToInt32(linha["id"]);
-                cidade.nome = linha["nome"].ToString();
-              cidades.Add(cidade);
-            }
-            comando.Connection.Close();
-            return cidades;
-        }
         public int Inserir(Cidade cidade)
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"INSERT INTO cidades (nome,numerohabitacao) OUTPUT INSERTED.ID VALUES (@NOME,@NUMHABITANTES)";
-            comando.Parameters.AddWithValue("@NOME", cidade.nome);
+            comando.CommandText = @"INSERT INTO cidades (nome, id_estado, numero_habitantes) OUTPUT INSERTED.ID VALUES (@NOME, @ID_ESTADO, @NUMHABITANTES)";
+            comando.Parameters.AddWithValue("@NOME", cidade.Nome);
+            comando.Parameters.AddWithValue("@ID_ESTADO", cidade.IdEstado);
             comando.Parameters.AddWithValue("@NUMHABITANTES", cidade.NumeroHabitantes);
             int id = Convert.ToInt32(comando.ExecuteScalar());
             comando.Connection.Close();
             return id;
         }
+
+        public List<Cidade> ObterTodos()
+        {
+            SqlCommand comando = Conexao.Conectar();
+            comando.CommandText = @"SELECT cidades.id AS 'CidadeId',
+cidades.nome AS 'CidadeNome',
+cidades.numero_habitantes AS 'CidadeNumeroHabitantes',
+cidades.id_estado AS 'CidadeIdEstado',
+estados.nome AS 'EstadoNome'
+FROM cidades
+INNER JOIN estados ON (cidades.id_estado = estados.id);";
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            comando.Connection.Close();
+
+            List<Cidade> cidades = new List<Cidade>();
+            foreach (DataRow linha in tabela.Rows)
+            {
+                Cidade cidade = new Cidade();
+                cidade.Id = Convert.ToInt32(linha["CidadeId"]);
+                cidade.Nome = linha["CidadeNome"].ToString();
+                cidade.NumeroHabitantes = Convert.ToInt32(linha["CidadeNumeroHabitantes"]);
+                cidade.Estado = new Estado();
+                cidade.Estado.Nome = linha["EstadoNome"].ToString();
+                cidades.Add(cidade);
+            }
+            return cidades;
+        }
+
         public Cidade ObterPeloId(int id)
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"SELECT * FROM cidades WHERE id = @Id";
+            comando.CommandText = @"SELECT cidades.id AS 'CidadeId',
+cidades.nome AS 'CidadeNome',
+cidades.numero_habitantes AS 'CidadeNumeroHabitantes',
+cidades.id_estado AS 'CidadeIdEstado',
+estados.nome AS 'EstadoNome'
+FROM cidades
+INNER JOIN estados ON (cidades.id_estado = estados.id)
+WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
-
             comando.Connection.Close();
+
+            List<Cidade> cidades = new List<Cidade>();
             if (tabela.Rows.Count == 0)
             {
                 return null;
@@ -56,22 +77,27 @@ namespace Repository
 
             DataRow linha = tabela.Rows[0];
             Cidade cidade = new Cidade();
-           cidade.id = Convert.ToInt32(linha["id"]);
-           cidade.nome = linha["nome"].ToString();
-           cidade.NumeroHabitantes = Convert.ToInt32(linha["NumeroHabitantes"]);
+            cidade.Id = Convert.ToInt32(linha["CidadeId"]);
+            cidade.Nome = linha["CidadeNome"].ToString();
+            cidade.NumeroHabitantes = Convert.ToInt32(linha["CidadeNumeroHabitantes"]);
+            cidade.Estado = new Estado();
+            cidade.Estado.Nome = linha["EstadoNome"].ToString();
             return cidade;
         }
 
         public bool Alterar(Cidade cidade)
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"UPDATE cidades SET nome = @NOME WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID", cidade.id);
-            comando.Parameters.AddWithValue("@NOME", cidade.nome);
+            comando.CommandText = @"UPDATE cidades SET nome = @NOME, numero_habitantes = @NUMERO_HABITANTES, id_estado = @ID_ESTADO WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", cidade.Id);
+            comando.Parameters.AddWithValue("@NOME", cidade.Nome);
+            comando.Parameters.AddWithValue("@NUMERO_HABITANTES,", cidade.NumeroHabitantes);
+            comando.Parameters.AddWithValue("@ID_ESTADO", cidade.IdEstado);
             int quantidadeAfetada = comando.ExecuteNonQuery();
             comando.Connection.Close();
             return quantidadeAfetada == 1;
         }
+
         public bool Apagar(int id)
         {
             SqlCommand comando = Conexao.Conectar();
@@ -81,8 +107,5 @@ namespace Repository
             comando.Connection.Close();
             return quantidadeAfetada == 1;
         }
-
-
-
     }
 }

@@ -70,8 +70,8 @@ namespace Repository
                 projeto.Nome = linha["ProjetoNome"].ToString();
                 projeto.Data_Criacao = Convert.ToDateTime(linha["ProjetoDataCriacao"]);
                 projeto.Data_Finalizacao = Convert.ToDateTime(linha["ProjetoDatafinalizacao"]);
-                projeto.cliente = new Cliente();
-                projeto.cliente.Nome = linha["ProjetoCliente"].ToString();
+                projeto.Cliente = new Cliente();
+                projeto.Cliente.Nome = linha["ProjetoCliente"].ToString();
                 projetos.Add(projeto);
             }
             return projetos;
@@ -104,8 +104,8 @@ namespace Repository
             projeto.Nome = linha["ProjetoNome"].ToString();
             projeto.Data_Criacao = Convert.ToDateTime(linha["ProjetoDataCriacao"]);
             projeto.Data_Finalizacao = Convert.ToDateTime(linha["ProjetoDataFinalizacao"]);
-            projeto.cliente = new Cliente();
-            projeto.cliente.Nome = linha["ClienteNome"].ToString();
+            projeto.Cliente = new Cliente();
+            projeto.Cliente.Nome = linha["ClienteNome"].ToString();
 
             return projeto;
         }

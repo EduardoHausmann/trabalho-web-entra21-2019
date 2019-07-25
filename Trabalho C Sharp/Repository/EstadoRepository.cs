@@ -9,37 +9,38 @@ using System.Data;
 
 namespace Repository
 {
-   public class EstadoRepository
+    public class EstadoRepository
     {
-        
+
+        public int Inserir(Estado estado)
+        {
+            SqlCommand comando = Conexao.Conectar();
+            comando.CommandText = @"INSERT INTO estados (nome,sigla) OUTPUT INSERTED.ID VALUES(@NOME,@SIGLA)";
+            comando.Parameters.AddWithValue("@NOME", estado.Nome);
+            comando.Parameters.AddWithValue("@SIGLA", estado.Sigla);
+            int id = Convert.ToInt32(comando.ExecuteScalar());
+            comando.Connection.Close();
+            return id;
+        }
+
         public List<Estado> ObterTodos()
         {
             SqlCommand comando = Conexao.Conectar();
             comando.CommandText = @"SELECT * FROM estados";
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
-            List <Estado> estados = new List<Estado>();
 
+            List<Estado> estados = new List<Estado>();
             foreach (DataRow linha in tabela.Rows)
             {
-               Estado estado = new Estado();
-                estado.id = Convert.ToInt32(linha["id"]);
-               estado.nome = linha["nome"].ToString();
+                Estado estado = new Estado();
+                estado.Id = Convert.ToInt32(linha["id"]);
+                estado.Nome = linha["nome"].ToString();
+                estado.Sigla = linha["sigla"].ToString();
                 estados.Add(estado);
             }
             comando.Connection.Close();
             return estados;
-        }
-
-        public int Inserir(Estado estado)
-        {
-            SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"INSERT INTO estados (nome,sigla) OUTPUT INSERTED.ID VALUES (@NOME,@SIGLA)";
-            comando.Parameters.AddWithValue("@NOME", estado.nome);
-            comando.Parameters.AddWithValue("@SIGLA",estado.sigla);
-            int id = Convert.ToInt32(comando.ExecuteScalar());
-            comando.Connection.Close();
-            return id;
         }
 
         public Estado ObterPeloId(int id)
@@ -59,24 +60,23 @@ namespace Repository
 
             DataRow linha = tabela.Rows[0];
             Estado estado = new Estado();
-            estado.id = Convert.ToInt32(linha["id"]);
-            estado.nome = linha["nome"].ToString();
-            estado.sigla = linha["sigla"].ToString();
+            estado.Id = Convert.ToInt32(linha["id"]);
+            estado.Nome = linha["nome"].ToString();
+            estado.Sigla = linha["sigla"].ToString();
             return estado;
         }
 
         public bool Alterar(Estado estado)
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"UPDATE categorias SET nome = @NOME WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID", estado.id);
-            comando.Parameters.AddWithValue("@NOME", estado.nome);
+            comando.CommandText = @"UPDATE estados SET nome = @NOME, sigla= @SIGLA WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", estado.Id);
+            comando.Parameters.AddWithValue("@NOME", estado.Nome);
+            comando.Parameters.AddWithValue("@SIGLA", estado.Sigla);
             int quantidadeAfetada = comando.ExecuteNonQuery();
             comando.Connection.Close();
             return quantidadeAfetada == 1;
         }
-
-
 
         public bool Apagar(int id)
         {
@@ -88,5 +88,5 @@ namespace Repository
             return quantidadeAfetada == 1;
         }
     }
-    }
+}
 

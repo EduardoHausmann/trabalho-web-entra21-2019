@@ -8,9 +8,8 @@ namespace Model
 {
    public class Estado
     {
-        public int id;
-        public string sigla;
-        public string nome; 
-           
+        public int Id;
+        public string Sigla;
+        public string Nome;
     }
 }
