@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<title>Cadastro de Projetos</title>
+<h3 class="text-center mb-3 mt-3 text-info">Cadastro de Projetos</h3>
+
+<form action="projeto/store" method="post">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="campo-cliente">Cliente</label>
+                <select class="form-control" name="cliente">
+                    <option disabled="disabled" selected="selected">Selecionar um Cliente</option>
+                    @foreach (Model.Cliente cliente in ViewBag.Cliente)
+                    {
+                        <option value="@cliente.Id">@cliente.Nome</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="campo-nome">Nome</label>
+                <input type="text" name="nome" id="campo-nome" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="campo-dataCriacao">Data de Criação</label>
+                <input type="datetime" name="dataCrição" id="campo-dataCriacao" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="campo-dataFinalizacao">Data de Finaliza</label>
+                <input type="datetime" name="dataFinalizacao" id="campo-dataFinalizacao" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button type="submit" class="btn btn-success float-right"><i class="fas fa-save"></i>Salvar</button>
+        </div>
+    </div>
+</form>
+     
+
+

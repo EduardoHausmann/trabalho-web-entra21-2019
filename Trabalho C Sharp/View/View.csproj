@@ -230,6 +230,7 @@
     <Content Include="Views\Estado\Index.cshtml" />
     <Content Include="Views\Cidade\Editar.cshtml" />
     <Content Include="Views\Projeto\Index.cshtml" />
+    <Content Include="Views\Projeto\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
