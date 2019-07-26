@@ -8,3 +8,5 @@ C:\Users\vandoepri\Documents\GitHub\trabalho-web-entra21-2019\Trabalho C Sharp\M
 C:\Users\vandoepri\Documents\GitHub\trabalho-web-entra21-2019\Trabalho C Sharp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\vandoepri\Documents\GitHub\trabalho-web-entra21-2019\Trabalho C Sharp\Model\obj\Debug\Model.dll
 C:\Users\vandoepri\Documents\GitHub\trabalho-web-entra21-2019\Trabalho C Sharp\Model\obj\Debug\Model.pdb
+C:\Users\vandoepri\Documents\GitHub\trabalho-web-entra21-2019\Trabalho C Sharp\Model\bin\Debug\Model.dll
+C:\Users\vandoepri\Documents\GitHub\trabalho-web-entra21-2019\Trabalho C Sharp\Model\bin\Debug\Model.pdb

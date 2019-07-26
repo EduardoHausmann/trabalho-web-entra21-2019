@@ -78,7 +78,7 @@ namespace Repository
             comando.Connection.Close();
 
             List<Cliente> clientes = new List<Cliente>();
-            foreach(DataRow linha in tabela.Rows)
+            foreach (DataRow linha in tabela.Rows)
             {
                 Cliente cliente = new Cliente();
                 cliente.Nome = linha["ClienteNome"].ToString();
@@ -118,7 +118,7 @@ namespace Repository
             comando.Connection.Close();
 
             List<Cliente> clientes = new List<Cliente>();
-            if(tabela.Rows.Count == 0)
+            if (tabela.Rows.Count == 0)
             {
                 return null;
             }

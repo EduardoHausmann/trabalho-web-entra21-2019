@@ -229,6 +229,7 @@
     <Content Include="Views\Estado\Editar.cshtml" />
     <Content Include="Views\Estado\Index.cshtml" />
     <Content Include="Views\Cidade\Editar.cshtml" />
+    <Content Include="Views\Projeto\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -238,7 +239,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Views\Projeto\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
