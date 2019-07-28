@@ -55,7 +55,8 @@ namespace Repository
             projetos.id_cliente AS 'ProjetoIdCliente',
             projetos.nome AS 'ProjetoNome',
             projetos.data_criacao AS 'ProjetoDataCriacao',
-            projetos.data_finalizacao AS 'ProjetoDataFinalizacao'
+            projetos.data_finalizacao AS 'ProjetoDataFinalizacao',
+            clientes.Nome AS 'ClienteNome'
             FROM projetos
             INNER JOIN clientes ON (projetos.Id_Cliente = clientes.Id);";
 
@@ -72,7 +73,7 @@ namespace Repository
                 projeto.Data_Criacao = Convert.ToDateTime(linha["ProjetoDataCriacao"]);
                 projeto.Data_Finalizacao = Convert.ToDateTime(linha["ProjetoDatafinalizacao"]);
                 projeto.Cliente = new Cliente();
-                projeto.Cliente.Nome = linha["ProjetoCliente"].ToString();
+                projeto.Cliente.Nome = linha["ClienteNome"].ToString();
                 projetos.Add(projeto);
             }
             return projetos;

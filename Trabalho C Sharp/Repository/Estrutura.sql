@@ -32,8 +32,6 @@ CREATE TABLE clientes(
 	cep NCHAR(10)
 );
 
-select* from clientes;
-
 DROP TABLE IF EXISTS projetos;
 CREATE TABLE projetos(
 	id INT PRIMARY KEY IDENTITY(1,1),

@@ -11,9 +11,6 @@ namespace Repository
 {
     public class TarefaRepository
     {
-
-
-
         /*Trabalho certo*/
         public int Inserir(Tarefa tarefa)
         {
@@ -84,11 +81,12 @@ namespace Repository
             foreach (DataRow linha in tabela.Rows)
             {
                 Tarefa tarefa = new Tarefa();
+                tarefa.Id = Convert.ToInt32(linha["TarefaId"]);
                 tarefa.Id_Usuario_Responsavel = Convert.ToInt32(linha["TarefaIdUsuarioResponsavel"]);
                 tarefa.Id_Projeto = Convert.ToInt32(linha["TarefaIdProjeto"]);
                 tarefa.Id_Categoria = Convert.ToInt32(linha["TarefaIdCategoria"]);
                 tarefa.Titulo = linha["TarefaTitulo"].ToString();
-                tarefa.Descricao = linha["TaredaDescricao"].ToString();
+                tarefa.Descricao = linha["TarefaDescricao"].ToString();
                 tarefa.Duracao = Convert.ToDateTime(linha["TarefaDuracao"]);
                 tarefa.usuario = new Usuario();
                 tarefa.projeto = new Projeto();
@@ -118,7 +116,8 @@ namespace Repository
             INNER JOIN usuarios ON (tarefas.id_usuario_responsavel = usuarios.id)
             INNER JOIN projetos ON (tarefas.id_projeto = projetos.id)
             INNER JOIN categorias ON (tarefas.id_categoria = categorias.id)
-            WHERE id = @ID;";
+            WHERE tarefas.id = @ID;";
+            comando.Parameters.AddWithValue("@ID", id);
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -132,11 +131,12 @@ namespace Repository
 
             DataRow linha = tabela.Rows[0];
             Tarefa tarefa = new Tarefa();
+            tarefa.Id = Convert.ToInt32(linha["TarefaId"]);
             tarefa.Id_Usuario_Responsavel = Convert.ToInt32(linha["TarefaIdUsuarioResponsavel"]);
             tarefa.Id_Projeto = Convert.ToInt32(linha["TarefaIdProjeto"]);
             tarefa.Id_Categoria = Convert.ToInt32(linha["TarefaIdCategoria"]);
             tarefa.Titulo = linha["TarefaTitulo"].ToString();
-            tarefa.Descricao = linha["TaredaDescricao"].ToString();
+            tarefa.Descricao = linha["TarefaDescricao"].ToString();
             tarefa.Duracao = Convert.ToDateTime(linha["TarefaDuracao"]);
             tarefa.usuario = new Usuario();
             tarefa.projeto = new Projeto();

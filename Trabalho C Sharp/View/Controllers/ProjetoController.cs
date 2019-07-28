@@ -39,6 +39,7 @@ namespace View.Controllers
             projeto.Nome = nome;
             projeto.Data_Criacao = dataCriacao;
             projeto.Data_Finalizacao = dataFinalizacao;
+
             repository.Inserir(projeto);
             return RedirectToAction("Index");
         }
