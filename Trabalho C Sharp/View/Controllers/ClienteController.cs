@@ -52,7 +52,7 @@ namespace View.Controllers
         public ActionResult Editar(int id)
         {
             Cliente cliente = new Cliente();
-            cliente = repository.ObterPeloId();
+            cliente = repository.ObterPeloId(id);
 
             CidadeRepository cidadeRepository = new CidadeRepository();
             List<Cidade> cidades = cidadeRepository.ObterTodos();

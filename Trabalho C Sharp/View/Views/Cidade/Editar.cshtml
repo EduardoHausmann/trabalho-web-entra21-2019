@@ -7,7 +7,7 @@
 <h3 class="text-center mb-3 mt-3 text-info">Edição de Cidade</h3>
 
 <form action="/cidade/update" method="post">
-    <input type="hidden" name="id" value="@ViewBag.Cidade.Id" />
+    <input type="hidden" name="id" value="@ViewBag.cidade.Id" />
 
     <div class="row">
         <div class="col-12">
@@ -40,10 +40,10 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <dic class="form-group">
-                <label for="campo-numhabitantes">Numero Habitantes</label>
-                <input type="text" name="numHabitantes" class="form-control" id="campo-numHabitantes" />
-            </dic>
+            <div class="form-group">
+                <label for="campo-numero_habitantes">Numero Habitantes</label>
+                <input type="text" name="numero_habitantes" class="form-control" id="campo-numero_habitantes" />
+            </div>
         </div>
     </div>
 

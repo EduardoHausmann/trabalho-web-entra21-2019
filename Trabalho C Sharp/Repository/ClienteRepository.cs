@@ -81,6 +81,7 @@ namespace Repository
             foreach (DataRow linha in tabela.Rows)
             {
                 Cliente cliente = new Cliente();
+                cliente.Id = Convert.ToInt32(linha["ClienteId"]);
                 cliente.Nome = linha["ClienteNome"].ToString();
                 cliente.Cpf = linha["ClienteCpf"].ToString();
                 cliente.Data_Nascimento = Convert.ToDateTime(linha["ClienteDataNascimento"]);
@@ -96,7 +97,7 @@ namespace Repository
             return clientes;
         }
 
-        public Cliente ObterPeloId()
+        public Cliente ObterPeloId(int id)
         {
             SqlCommand comando = Conexao.Conectar();
             comando.CommandText = @"SELECT clientes.id AS 'ClienteId',
@@ -111,7 +112,8 @@ namespace Repository
             clientes.cep AS 'ClienteCep'
 			FROM clientes
             INNER JOIN cidades ON (clientes.id_cidade = cidades.id)
-            WHERE id = @ID";
+            WHERE clientes.id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
