@@ -14,10 +14,10 @@ namespace Repository
         public int Inserir(Cidade cidade)
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"INSERT INTO cidades (nome, id_estado, numero_habitantes) OUTPUT INSERTED.ID VALUES (@NOME, @ID_ESTADO, @NUMHABITANTES)";
+            comando.CommandText = @"INSERT INTO cidades (nome, id_estado, numero_habitantes) OUTPUT INSERTED.ID VALUES (@NOME, @ID_ESTADO, @NUMERO_HABITANTES)";
             comando.Parameters.AddWithValue("@NOME", cidade.Nome);
             comando.Parameters.AddWithValue("@ID_ESTADO", cidade.IdEstado);
-            comando.Parameters.AddWithValue("@NUMHABITANTES", cidade.NumeroHabitantes);
+            comando.Parameters.AddWithValue("@NUMERO_HABITANTES", cidade.NumeroHabitantes);
             int id = Convert.ToInt32(comando.ExecuteScalar());
             comando.Connection.Close();
             return id;
@@ -62,7 +62,7 @@ cidades.id_estado AS 'CidadeIdEstado',
 estados.nome AS 'EstadoNome'
 FROM cidades
 INNER JOIN estados ON (cidades.id_estado = estados.id)
-WHERE id = @ID";
+WHERE cidades.id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
 
             DataTable tabela = new DataTable();
@@ -91,8 +91,9 @@ WHERE id = @ID";
             comando.CommandText = @"UPDATE cidades SET nome = @NOME, numero_habitantes = @NUMERO_HABITANTES, id_estado = @ID_ESTADO WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", cidade.Id);
             comando.Parameters.AddWithValue("@NOME", cidade.Nome);
-            comando.Parameters.AddWithValue("@NUMERO_HABITANTES,", cidade.NumeroHabitantes);
+            comando.Parameters.AddWithValue("@NUMERO_HABITANTES", cidade.NumeroHabitantes);
             comando.Parameters.AddWithValue("@ID_ESTADO", cidade.IdEstado);
+
             int quantidadeAfetada = comando.ExecuteNonQuery();
             comando.Connection.Close();
             return quantidadeAfetada == 1;

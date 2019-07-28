@@ -30,7 +30,7 @@ namespace View.Controllers
         public ActionResult Cadastro()
         {
             EstadoRepository estadoRepository = new EstadoRepository();
-            List<Estado> estados = new List<Estado>();
+            List<Estado> estados = estadoRepository.ObterTodos();
             ViewBag.Estados = estados;
 
             return View();
@@ -54,7 +54,7 @@ namespace View.Controllers
             ViewBag.Estado = cidade;
 
             EstadoRepository estadoRepository = new EstadoRepository();
-            List<Estado> estados = new List<Estado>();
+            List<Estado> estados = estadoRepository.ObterTodos();
             ViewBag.Estados = estados;
 
             return View();
@@ -67,7 +67,7 @@ namespace View.Controllers
             cidade.NumeroHabitantes = numero_habitantes;
             cidade.IdEstado = estado;
 
-            repository.Alterar(cidade);
+            repository.Inserir(cidade);
             return RedirectToAction("Index");
         }
 

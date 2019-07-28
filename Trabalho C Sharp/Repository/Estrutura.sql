@@ -1,9 +1,11 @@
-﻿CREATE TABLE estados(
+﻿DROP TABLE IF EXISTS estados;
+CREATE TABLE estados(
 	id INT PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(50),
 	sigla VARCHAR(2)
 );
 
+DROP TABLE IF EXISTS cidades;
 CREATE TABLE cidades(
 	id INT PRIMARY KEY IDENTITY(1,1),
 
@@ -14,6 +16,7 @@ CREATE TABLE cidades(
 	numero_habitantes INT
 );
 
+DROP TABLE IF EXISTS clientes;
 CREATE TABLE clientes(
 	id INT PRIMARY KEY IDENTITY(1,1),
 
@@ -29,6 +32,7 @@ CREATE TABLE clientes(
 	cep NCHAR(10)
 );
 
+DROP TABLE IF EXISTS projetos;
 CREATE TABLE projetos(
 	id INT PRIMARY KEY IDENTITY(1,1),
 
@@ -40,6 +44,7 @@ CREATE TABLE projetos(
 	data_finalizacao DATETIME2(7)
 );
 
+DROP TABLE IF EXISTS usuarios;
 CREATE TABLE usuarios(
 	id INT PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(50),
@@ -47,11 +52,13 @@ CREATE TABLE usuarios(
 	senha VARCHAR(50)
 );
 
+DROP TABLE IF EXISTS categorias;
 CREATE TABLE categorias(
 	id INT PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(50)
 );
 
+DROP TABLE IF EXISTS tarefas;
 CREATE TABLE tarefas(
 	id INT PRIMARY KEY IDENTITY(1,1),
 

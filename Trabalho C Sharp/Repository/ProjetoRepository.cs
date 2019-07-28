@@ -51,13 +51,13 @@ namespace Repository
         public List<Projeto> ObterTodos()
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"SELECT projeto.id AS 'ProjetoId',
-            projeto.id_cliente AS 'ProjetoIdCliente',
-            projeto.nome AS 'ProjetoNome',
-            projeto.data_nascimento AS 'ProjetoDatanascimento',
-            projeto.data_finalizacao AS 'ProjetoDataFinalizacao
+            comando.CommandText = @"SELECT projetos.id AS 'ProjetoId',
+            projetos.id_cliente AS 'ProjetoIdCliente',
+            projetos.nome AS 'ProjetoNome',
+            projetos.data_criacao AS 'ProjetoDataCriacao',
+            projetos.data_finalizacao AS 'ProjetoDataFinalizacao'
             FROM projetos
-            INNER JOIN clientes ON (projetos.Id_Clientes = cliente.Id);";
+            INNER JOIN clientes ON (projetos.Id_Cliente = clientes.Id);";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());

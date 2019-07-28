@@ -6,14 +6,14 @@
 <title> Cadastro Tarefa </title>
 <h3 class="text-center mb-3 mt-3 text-info">Cadastro de Tarefas</h3>
 
-<form action="tarefa/store" method="post">
+<form action="/tarefa/store" method="post">
     <div class="row">
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-usuario">Usuario</label>
                 <select class="form-control" name="usuario">
                     <option disabled="disabled" selected="selected">Selecione um Usuario</option>
-                    @foreach (Model.Usuario usuario in ViewBag.Categorias)
+                    @foreach (Model.Usuario usuario in ViewBag.Usuarios)
                     {
                         <option value="@usuario.Id">@usuario.Nome</option>
                     }

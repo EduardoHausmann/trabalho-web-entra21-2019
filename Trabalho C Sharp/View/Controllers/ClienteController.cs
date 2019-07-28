@@ -44,6 +44,7 @@ namespace View.Controllers
             cliente.Complemento = complemento;
             cliente.Logradouro = logradouro;
             cliente.Cep = cep;
+
             repository.Inserir(cliente);
             return RedirectToAction("Index");
         }

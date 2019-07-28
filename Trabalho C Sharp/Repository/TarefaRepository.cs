@@ -11,6 +11,10 @@ namespace Repository
 {
     public class TarefaRepository
     {
+
+
+
+        /*Trabalho certo*/
         public int Inserir(Tarefa tarefa)
         {
             SqlCommand comando = Conexao.Conectar();

@@ -6,14 +6,14 @@
 <title>Cadastro de Projetos</title>
 <h3 class="text-center mb-3 mt-3 text-info">Cadastro de Projetos</h3>
 
-<form action="projeto/store" method="post">
+<form action="/projeto/store" method="post">
     <div class="row">
         <div class="col-12">
             <div class="form-group">
                 <label for="campo-cliente">Cliente</label>
                 <select class="form-control" name="cliente">
                     <option disabled="disabled" selected="selected">Selecionar um Cliente</option>
-                    @foreach (Model.Cliente cliente in ViewBag.Cliente)
+                    @foreach (Model.Cliente cliente in ViewBag.Clientes)
                     {
                         <option value="@cliente.Id">@cliente.Nome</option>
                     }

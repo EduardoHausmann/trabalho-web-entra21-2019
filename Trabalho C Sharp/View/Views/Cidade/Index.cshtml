@@ -33,7 +33,6 @@
             <th>Numero Habitantes</th>
             <th>Ação</th>
         </tr>
-
     </tfoot>
     <tbody>
         @foreach (Model.Cidade cidade in ViewBag.Cidades)
@@ -43,10 +42,9 @@
                 <td>@cidade.Nome</td>
                 <td>@cidade.Estado.Nome</td>
                 <td>@cidade.NumeroHabitantes</td>
-                <td>estado.sigla</td>
                 <td>
-                    <a href="/categoria/editar?id=@cidade.Id" class="btn btn-primary"><i class="fas fa-pen"></i> Editar</a>
-                    <a href="/categoria/apagar?id=@cidade.Id" class="btn btn-danger"><i class="fas fa-trash"></i> Apagar</a>
+                    <a href="/cidade/editar?id=@cidade.Id" class="btn btn-primary"><i class="fas fa-pen"></i> Editar</a>
+                    <a href="/cidade/apagar?id=@cidade.Id" class="btn btn-danger"><i class="fas fa-trash"></i> Apagar</a>
                 </td>
             </tr>
         }
