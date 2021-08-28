@@ -1,0 +1,6 @@
+C:\Users\Eduardo\Documents\GitHub\trabalho-web-entra21-2019\Trabalho_CSharp\Model\bin\Debug\Model.dll
+C:\Users\Eduardo\Documents\GitHub\trabalho-web-entra21-2019\Trabalho_CSharp\Model\bin\Debug\Model.pdb
+C:\Users\Eduardo\Documents\GitHub\trabalho-web-entra21-2019\Trabalho_CSharp\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+C:\Users\Eduardo\Documents\GitHub\trabalho-web-entra21-2019\Trabalho_CSharp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Eduardo\Documents\GitHub\trabalho-web-entra21-2019\Trabalho_CSharp\Model\obj\Debug\Model.dll
+C:\Users\Eduardo\Documents\GitHub\trabalho-web-entra21-2019\Trabalho_CSharp\Model\obj\Debug\Model.pdb

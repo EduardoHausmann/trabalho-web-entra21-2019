@@ -56,7 +56,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoriaRepository.cs" />
+    <Compile Include="CidadeRepository.cs" />
+    <Compile Include="ClienteRepository.cs" />
+    <Compile Include="Conexao.cs" />
+    <Compile Include="EstadoRepository.cs" />
+    <Compile Include="ProjetoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TarefaRepository.cs" />
+    <Compile Include="UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database.mdf">
@@ -89,6 +97,9 @@
       <Project>{14160ace-11f6-4e9e-af2f-4955ec045080}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
