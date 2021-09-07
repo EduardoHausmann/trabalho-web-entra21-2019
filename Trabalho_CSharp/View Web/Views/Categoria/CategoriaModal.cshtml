@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "CategorialModal";
+}
+
+<div class="modal" tabindex="-1" id="cadastro-categoria">
+    <form action="/categoria/store" method="post">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadastrar Categoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="campo-nome">Nome</label>
+                                <input type="text" name="nome" id="campo-nome" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><i class="bi bi-x-square"></i> Close</button>
+                    <button class="btn btn-outline-success mb-3 mt-3" type="submit"><i class="bi bi-save"></i> Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

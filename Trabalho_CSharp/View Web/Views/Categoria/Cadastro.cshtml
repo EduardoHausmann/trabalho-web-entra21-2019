@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<title>Cadastrar Categoria</title>
+<h2 class="text-center mt-3 mb-3 fw-bolder">Cadastro de Categoria</h2>
+
+<form action="/categoria/store" method="post">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="campo-nome">Nome</label>
+                <input type="text" name="nome" id="campo-nome" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-outline-success mb-3 mt-3" type="submit"><i class="bi bi-save"></i> Salvar</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Editar";
+}
+
+<title>Editar Categoria</title>
+<h2 class="text-center mb-3 mt-3 fw-bolder">Editar Categoria</h2>
+
+<form action="/categoria/update" method="post">
+    <input type="hidden" name="id" value="@ViewBag.Categoria.Id" />
+
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="campo-nome">Nome</label>
+                <input type="text" name="nome" id="campo-nome" class="form-control" value="@ViewBag.Categoria.Nome" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-outline-success mb-3 mt-3" type="submit"><i class="bi bi-save"></i> Salvar</button>
+        </div>
+    </div>
+</form>

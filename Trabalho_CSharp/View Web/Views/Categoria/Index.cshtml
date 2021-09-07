@@ -3,5 +3,39 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<title>Lista Categoria</title>
+<h2 class="text-center mb-3 mt-3 fw-bolder">Lista de Categorias</h2>
 
+<div class="row mb-3">
+    <div class="col-12">
+        <a href="/categoria/cadastro" class="btn btn-outline-info mb-3 mt-3"><i class="bi bi-plus-square"></i> Nova Categoria</a>
+        @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastro-categoria">
+            <i class="bi bi-plus-square"></i> Nova Categoria
+        </button>*@
+    </div>
+</div>
+
+<table class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Categoria</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Model.Categoria categoria in ViewBag.Categorias)
+        {
+            <tr>
+                <td>@categoria.Id</td>
+                <td>@categoria.Nome</td>
+                <td>
+                    <a href="/categoria/editar?id=@categoria.Id" class="btn btn-outline-primary"><i class="bi bi-pencil"></i> Editar</a>
+                    <a href="/categoria/apagar?id=@categoria.Id" class="btn btn-outline-danger"><i class="bi bi-trash"></i> Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@RenderPage("CategoriaModal.cshtml")
