@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<title>Cadastrar Estado</title>
+<h2 class="text-center mt-3 mb-3 fw-bolder">Cadastro de Estado</h2>
+
+<form action="/estado/store" method="post">
+    <div class="row">
+        <div class="col-9">
+            <div class="form-group">
+                <label for="campo-nome">Nome</label>
+                <input type="text" name="nome" id="campo-nome" class="form-control" />
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="form-group">
+                <label for="campo-sigla">Sigla</label>
+                <input type="text" name="sigla" id="campo-sigla" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <button type="submit" class="btn btn-outline-success mb-3 mt-3"><i class="bi bi-save"></i> Salvar</button>
+        </div>
+    </div>
+</form>
