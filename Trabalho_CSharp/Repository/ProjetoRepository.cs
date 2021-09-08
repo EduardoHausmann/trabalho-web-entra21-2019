@@ -23,7 +23,7 @@ namespace Repository
             throw new NotImplementedException();
         }
 
-        public int Interir(Projeto projeto)
+        public int Inserir(Projeto projeto)
         {
             throw new NotImplementedException();
         }

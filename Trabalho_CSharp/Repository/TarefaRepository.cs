@@ -23,7 +23,7 @@ namespace Repository
             throw new NotImplementedException();
         }
 
-        public int Interir(Tarefa tarefa)
+        public int Inserir(Tarefa tarefa)
         {
             throw new NotImplementedException();
         }

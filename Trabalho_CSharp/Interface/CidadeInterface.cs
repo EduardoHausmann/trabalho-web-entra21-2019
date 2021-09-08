@@ -9,7 +9,7 @@ namespace Interface
 {
     public interface CidadeInterface
     {
-        int Interir(Cidade cidade);
+        int Inserir(Cidade cidade);
 
         bool Alterar(Cidade cidade);
 

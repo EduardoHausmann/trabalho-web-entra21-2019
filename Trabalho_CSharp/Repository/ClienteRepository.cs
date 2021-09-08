@@ -23,7 +23,7 @@ namespace Repository
             throw new NotImplementedException();
         }
 
-        public int Interir(Cliente cliente)
+        public int Inserir(Cliente cliente)
         {
             throw new NotImplementedException();
         }

@@ -9,7 +9,7 @@ namespace Interface
 {
     public interface CategoriaInterface
     {
-        int Interir(Categoria categoria);
+        int Inserir(Categoria categoria);
 
         bool Alterar(Categoria categoria);
 

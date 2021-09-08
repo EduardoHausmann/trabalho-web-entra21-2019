@@ -9,7 +9,7 @@ namespace Interface
 {
     public interface TarefaInterface
     {
-        int Interir(Tarefa tarefa);
+        int Inserir(Tarefa tarefa);
 
         bool Alterar(Tarefa tarefa);
 

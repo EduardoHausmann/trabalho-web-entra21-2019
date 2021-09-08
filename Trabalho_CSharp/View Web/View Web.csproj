@@ -253,6 +253,9 @@
     <Content Include="Views\Estado\Index.cshtml" />
     <Content Include="Views\Estado\Cadastro.cshtml" />
     <Content Include="Views\Estado\Editar.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Cadastro.cshtml" />
+    <Content Include="Views\Usuario\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -267,7 +270,6 @@
     <Folder Include="Views\Cliente\" />
     <Folder Include="Views\Projeto\" />
     <Folder Include="Views\Tarefa\" />
-    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

@@ -9,7 +9,7 @@ namespace Interface
 {
     public interface EstadoInterface
     {
-        int Interir(Estado estado);
+        int Inserir(Estado estado);
 
         bool Alterar(Estado estado);
 

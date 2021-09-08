@@ -36,7 +36,7 @@ namespace View_Web.Controllers
             Estado estado = new Estado();
             estado.Nome = nome;
             estado.Sigla = sigla;
-            repository.Interir(estado);
+            repository.Inserir(estado);
             return RedirectToAction("Index");
         }
 

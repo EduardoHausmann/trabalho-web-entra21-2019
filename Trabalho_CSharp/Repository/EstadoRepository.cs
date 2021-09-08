@@ -36,7 +36,7 @@ namespace Repository
             return qtdAfetada = true;
         }
 
-        public int Interir(Estado estado)
+        public int Inserir(Estado estado)
         {
             cmd.CommandText = @"INSERT INTO estados (nome, sigla) OUTPUT INSERTED.ID VALUES (@NOME , @SIGLA)";
             cmd.Parameters.AddWithValue("@NOME", estado.Nome);

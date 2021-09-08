@@ -23,7 +23,7 @@ namespace Repository
             throw new NotImplementedException();
         }
 
-        public int Interir(Cidade cidade)
+        public int Inserir(Cidade cidade)
         {
             throw new NotImplementedException();
         }

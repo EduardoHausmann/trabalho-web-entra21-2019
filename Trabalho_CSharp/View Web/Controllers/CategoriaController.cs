@@ -35,7 +35,7 @@ namespace View_Web.Controllers
         {
             Categoria categoria = new Categoria();
             categoria.Nome = nome;
-            repository.Interir(categoria);
+            repository.Inserir(categoria);
             return RedirectToAction("Index");
         }
 

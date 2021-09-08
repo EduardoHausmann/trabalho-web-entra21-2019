@@ -9,7 +9,7 @@ namespace Interface
 {
     public interface ProjetoInterface
     {
-        int Interir(Projeto projeto);
+        int Inserir(Projeto projeto);
 
         bool Alterar(Projeto projeto);
 

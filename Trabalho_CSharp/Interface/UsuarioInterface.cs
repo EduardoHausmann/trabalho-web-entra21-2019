@@ -9,7 +9,7 @@ namespace Interface
 {
     public interface UsuarioInterface
     {
-        int Interir(Usuario usuario);
+        int Inserir(Usuario usuario);
 
         bool Alterar(Usuario usuario);
 

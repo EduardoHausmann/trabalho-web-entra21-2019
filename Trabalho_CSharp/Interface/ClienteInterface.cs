@@ -9,7 +9,7 @@ namespace Interface
 {
     public interface ClienteInterface
     {
-        int Interir(Cliente cliente);
+        int Inserir(Cliente cliente);
 
         bool Alterar(Cliente cliente);
 

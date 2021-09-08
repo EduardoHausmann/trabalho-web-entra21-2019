@@ -35,7 +35,7 @@ namespace Repository
             return qtdAfetada = true;
         }
 
-        public int Interir(Categoria categoria)
+        public int Inserir(Categoria categoria)
         {
             cmd.CommandText = @"INSERT INTO categorias (nome) OUTPUT INSERTED.ID VALUES (@NOME)";
             cmd.Parameters.AddWithValue("@NOME", categoria.Nome);
