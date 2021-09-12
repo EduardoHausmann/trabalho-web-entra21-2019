@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<title>Cadastrar Cidade</title>
+<h2 class="text-center mt-3 mb-3 fw-bolder">Cadastro de Cidade</h2>
+
+<form action="/cidade/store" method="post">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="campo-estado">Estado</label>
+                <select class="form-control" name="estado">
+                    <option disabled="disabled" selected="selected">Selecione o Estado</option>
+                    @foreach (Model.Estado estado in ViewBag.Estados)
+                    {
+                        <option value="@estado.Id">@estado.Nome</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="campo-nome">Nome</label>
+                <input type="text" name="nome" class="form-control" id="campo-nome" />
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="form-group">
+                <label for="campo-habitantes">N° Habitantes</label>
+                <input type="number" name="habitantes" class="form-control" id="campo-habitantes" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-outline-success mb-3 mt-3" type="submit"><i class="bi bi-save"></i> Salvar</button>
+        </div>
+    </div>
+</form>
