@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Model;
+﻿using Model;
 using Repository;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace View.Controllers
 {
@@ -31,10 +28,10 @@ namespace View.Controllers
             return View();
         }
 
-        public ActionResult Store(string nome,string sigla)
+        public ActionResult Store(string nome, string sigla)
         {
-          Estado estado= new Estado();
-           estado.Nome = nome;
+            Estado estado = new Estado();
+            estado.Nome = nome;
             estado.Sigla = sigla;
             repository.Inserir(estado);
             return RedirectToAction("Index");
@@ -42,15 +39,15 @@ namespace View.Controllers
 
         public ActionResult Editar(int id)
         {
-          Estado estado = repository.ObterPeloId(id);
-            ViewBag.Estado = estado ;
+            Estado estado = repository.ObterPeloId(id);
+            ViewBag.Estado = estado;
             return View();
         }
         public ActionResult Update(int id, string nome, string sigla)
         {
-           Estado estado = new Estado();
+            Estado estado = new Estado();
             estado.Id = id;
-           estado.Nome = nome;
+            estado.Nome = nome;
             estado.Sigla = sigla;
 
             repository.Alterar(estado);

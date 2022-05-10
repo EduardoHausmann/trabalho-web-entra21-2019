@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
@@ -20,7 +17,7 @@ namespace Repository
 
             List<Usuario> usuarios = new List<Usuario>();
 
-            foreach(DataRow linha in tabela.Rows)
+            foreach (DataRow linha in tabela.Rows)
             {
                 Usuario usuario = new Usuario();
                 usuario.Id = Convert.ToInt32(linha["id"]);

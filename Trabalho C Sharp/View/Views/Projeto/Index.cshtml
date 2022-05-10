@@ -21,29 +21,21 @@
             <th>Cliente</th>
             <th>Nome</th>
             <th>Data Criação</th>
-            <th>data Finalização</th>
+            <th>Data Finalização</th>
         </tr>
     </thead>
+
     <tbody>
         @foreach(Model.Projeto projeto in ViewBag.Projetos)
         {
             <tr>
                 <td>@projeto.Id</td>
-                <td>@projeto.Id_Cliente</td>
+                <td>@projeto.Cliente.Nome</td>
                 <td>@projeto.Nome</td>
-                <td>@projeto.Data_Criacao</td>
-                <td>@projeto.Data_Finalizacao</td>
+                <td>@projeto.DataCriacao</td>
+                <td>@projeto.DataFinalizacao</td>
             </tr>
         }
     </tbody>
-    <tfoot>
-        <tr>
-            <th>Código</th>
-            <th>Cliente</th>
-            <th>Nome</th>
-            <th>Data Criação</th>
-            <th>data Finalização</th>
-        </tr>
-    </tfoot>
 </table>
 

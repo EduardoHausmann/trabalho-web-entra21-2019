@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
@@ -17,12 +14,12 @@ namespace Repository
             comando.CommandText = @"INSERT INTO clientes (nome, cpf, data_nascimento, numero, complemento, logradouro, cep, id_cidade) OUTPUT INSERTED.ID VALUES (@NOME, @CPF, @DATA_NASCIMENTO, @NUMERO, @COMPLEMENTO, @LOGRADOURO, @CEP, @ID_CIDADE)";
             comando.Parameters.AddWithValue("@NOME", cliente.Nome);
             comando.Parameters.AddWithValue("@CPF", cliente.Cpf);
-            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", cliente.Data_Nascimento);
+            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", cliente.DataNascimento);
             comando.Parameters.AddWithValue("@NUMERO", cliente.Numero);
             comando.Parameters.AddWithValue("@COMPLEMENTO", cliente.Complemento);
             comando.Parameters.AddWithValue("@LOGRADOURO", cliente.Logradouro);
             comando.Parameters.AddWithValue("@CEP", cliente.Cep);
-            comando.Parameters.AddWithValue("@ID_CIDADE", cliente.Id_Cidade);
+            comando.Parameters.AddWithValue("@ID_CIDADE", cliente.IdCidade);
             int id = Convert.ToInt32(comando.ExecuteScalar());
             comando.Connection.Close();
 
@@ -43,10 +40,10 @@ namespace Repository
         {
             SqlCommand comando = Conexao.Conectar();
             comando.CommandText = @"UPDATE clientes SET id_cidade = @ID_CIDADE, nome = @NOME, cpf = @CPF, data_nascimento = @DATA_NASCIMENTO, numero = @NUMERO, complemento = @COMPLEMENTO, logradouro = @LOGRADOURO, cep = @CE WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID_CIDADE", cliente.Id_Cidade);
+            comando.Parameters.AddWithValue("@ID_CIDADE", cliente.IdCidade);
             comando.Parameters.AddWithValue("@NOME", cliente.Nome);
             comando.Parameters.AddWithValue("@CPF", cliente.Cpf);
-            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", cliente.Data_Nascimento);
+            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", cliente.DataNascimento);
             comando.Parameters.AddWithValue("@NUMERO", cliente.Numero);
             comando.Parameters.AddWithValue("@COMPLEMENTO", cliente.Complemento);
             comando.Parameters.AddWithValue("@LOGRADOURO", cliente.Logradouro);
@@ -84,12 +81,12 @@ namespace Repository
                 cliente.Id = Convert.ToInt32(linha["ClienteId"]);
                 cliente.Nome = linha["ClienteNome"].ToString();
                 cliente.Cpf = linha["ClienteCpf"].ToString();
-                cliente.Data_Nascimento = Convert.ToDateTime(linha["ClienteDataNascimento"]);
+                cliente.DataNascimento = Convert.ToDateTime(linha["ClienteDataNascimento"]);
                 cliente.Numero = Convert.ToInt32(linha["ClienteNumero"]);
                 cliente.Complemento = linha["ClienteComplemento"].ToString();
                 cliente.Logradouro = linha["ClienteLogradouro"].ToString();
                 cliente.Cep = linha["ClienteCep"].ToString();
-                cliente.Id_Cidade = Convert.ToInt32(linha["ClienteIdCidade"]);
+                cliente.IdCidade = Convert.ToInt32(linha["ClienteIdCidade"]);
                 cliente.Cidade = new Cidade();
                 cliente.Cidade.Nome = linha["CidadeNome"].ToString();
                 clientes.Add(cliente);
@@ -129,7 +126,7 @@ namespace Repository
             cliente.Id = Convert.ToInt32(linha["ClienteId"]);
             cliente.Nome = linha["ClienteNome"].ToString();
             cliente.Cpf = linha["ClienteCpf"].ToString();
-            cliente.Data_Nascimento = Convert.ToDateTime(linha["ClienteDataNascimento"]);
+            cliente.DataNascimento = Convert.ToDateTime(linha["ClienteDataNascimento"]);
             cliente.Numero = Convert.ToInt32(linha["ClienteNumero"]);
             cliente.Complemento = linha["ClienteComplemento"].ToString();
             cliente.Logradouro = linha["ClienteLogradouro"].ToString();

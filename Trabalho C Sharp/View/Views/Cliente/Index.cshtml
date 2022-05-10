@@ -29,6 +29,7 @@
             <th>Ação</th>
         </tr>
     </thead>
+
     <tbody>
         @foreach(Model.Cliente cliente in ViewBag.Clientes)
         {
@@ -36,7 +37,7 @@
                 <td>@cliente.Id</td>
                 <td>@cliente.Nome</td>
                 <td>@cliente.Cpf</td>
-                <td>@cliente.Data_Nascimento</td>
+                <td>@cliente.DataNascimento</td>
                 <td>@cliente.Numero</td>
                 <td>@cliente.Complemento</td>
                 <td>@cliente.Logradouro</td>
@@ -53,19 +54,5 @@
             </tr>
         }
     </tbody>
-    <tfoot>
-        <tr>
-            <th>Código</th>
-            <th>Nome</th>
-            <th>Cpf</th>
-            <th>Data de Nascimento</th>
-            <th>Numero</th>
-            <th>Complemento</th>
-            <th>Logradouro</th>
-            <th>Cep</th>
-            <th>Cidade</th>
-            <th>Ação</th>
-        </tr>
-    </tfoot>
 </table>
 

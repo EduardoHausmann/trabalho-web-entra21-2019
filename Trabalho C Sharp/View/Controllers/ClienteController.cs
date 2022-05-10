@@ -2,8 +2,6 @@
 using Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace View.Controllers
@@ -36,10 +34,10 @@ namespace View.Controllers
         public ActionResult Store(int cidade, string nome, string cpf, DateTime dataNascimento, int numero, string complemento, string logradouro, string cep)
         {
             Cliente cliente = new Cliente();
-            cliente.Id_Cidade = cidade;
+            cliente.IdCidade = cidade;
             cliente.Nome = nome;
             cliente.Cpf = cpf;
-            cliente.Data_Nascimento = dataNascimento;
+            cliente.DataNascimento = dataNascimento;
             cliente.Numero = numero;
             cliente.Complemento = complemento;
             cliente.Logradouro = logradouro;
@@ -65,10 +63,10 @@ namespace View.Controllers
         {
             Cliente cliente = new Cliente();
             cliente.Id = id;
-            cliente.Id_Cidade = cidade;
+            cliente.IdCidade = cidade;
             cliente.Nome = nome;
             cliente.Cpf = cpf;
-            cliente.Data_Nascimento = dataNascimento;
+            cliente.DataNascimento = dataNascimento;
             cliente.Numero = numero;
             cliente.Complemento = complemento;
             cliente.Logradouro = logradouro;

@@ -2,8 +2,6 @@
 using Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace View.Controllers
@@ -35,10 +33,10 @@ namespace View.Controllers
         public ActionResult Store(int cliente, string nome, DateTime dataCriacao, DateTime dataFinalizacao)
         {
             Projeto projeto = new Projeto();
-            projeto.Id_Cliente = cliente;
+            projeto.IdCliente = cliente;
             projeto.Nome = nome;
-            projeto.Data_Criacao = dataCriacao;
-            projeto.Data_Finalizacao = dataFinalizacao;
+            projeto.DataCriacao = dataCriacao;
+            projeto.DataFinalizacao = dataFinalizacao;
 
             repository.Inserir(projeto);
             return RedirectToAction("Index");
@@ -60,10 +58,10 @@ namespace View.Controllers
         {
             Projeto projeto = new Projeto();
             projeto.Id = id;
-            projeto.Id_Cliente = cliente;
+            projeto.IdCliente = cliente;
             projeto.Nome = nome;
-            projeto.Data_Criacao = dataCriacao;
-            projeto.Data_Finalizacao = dataFinalizacao;
+            projeto.DataCriacao = dataCriacao;
+            projeto.DataFinalizacao = dataFinalizacao;
             repository.Inserir(projeto);
 
             repository.Alterar(projeto);

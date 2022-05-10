@@ -2,8 +2,6 @@
 using Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace View.Controllers
@@ -25,7 +23,7 @@ namespace View.Controllers
             return View();
         }
 
-        public ActionResult Cadastro()  
+        public ActionResult Cadastro()
         {
             UsuarioRepository usuarioRepository = new UsuarioRepository();
             List<Usuario> usuarios = usuarioRepository.ObterTodos();
@@ -46,9 +44,9 @@ namespace View.Controllers
             , int categoria, string titulo, string descricao, DateTime duracao)
         {
             Tarefa tarefa = new Tarefa();
-            tarefa.Id_Usuario_Responsavel = usuario;
-            tarefa.Id_Projeto = projeto;
-            tarefa.Id_Categoria = categoria;
+            tarefa.IdUsuario = usuario;
+            tarefa.IdProjeto = projeto;
+            tarefa.IdCategoria = categoria;
             tarefa.Titulo = titulo;
             tarefa.Descricao = descricao;
             tarefa.Duracao = duracao;
@@ -81,9 +79,9 @@ namespace View.Controllers
         {
             Tarefa tarefa = new Tarefa();
             tarefa.Id = id;
-            tarefa.Id_Usuario_Responsavel = usuario;
-            tarefa.Id_Projeto = projeto;
-            tarefa.Id_Categoria = categoria;
+            tarefa.IdUsuario = usuario;
+            tarefa.IdProjeto = projeto;
+            tarefa.IdCategoria = categoria;
             tarefa.Titulo = titulo;
             tarefa.Descricao = descricao;
             tarefa.Duracao = duracao;

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
@@ -28,7 +23,7 @@ namespace Model
 
         [Column("id_projeto")]
         public int IdProjeto { get; set; }
-        
+
         [ForeignKey("IdProjeto")]
         public Projeto Projeto { get; set; }
 

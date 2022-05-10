@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
@@ -17,9 +14,9 @@ namespace Repository
             SqlCommand comando = Conexao.Conectar();
             comando.CommandText = @"INSERT INTO tarefas (id_usuario_responsavel, id_projeto, id_categoria, titulo, descricao, duracao)
             OUTPUT INSERTED.ID VALUES (@ID_USUARIO_RESPONSAVEL, @ID_PROJETO, @ID_CATEGORIA, @TITULO, @DESCRICAO, @DURACAO)";
-            comando.Parameters.AddWithValue("@ID_USUARIO_RESPONSAVEL", tarefa.Id_Usuario_Responsavel);
-            comando.Parameters.AddWithValue("@ID_PROJETO", tarefa.Id_Projeto);
-            comando.Parameters.AddWithValue("@ID_CATEGORIA", tarefa.Id_Categoria);
+            comando.Parameters.AddWithValue("@ID_USUARIO_RESPONSAVEL", tarefa.IdUsuario);
+            comando.Parameters.AddWithValue("@ID_PROJETO", tarefa.IdProjeto);
+            comando.Parameters.AddWithValue("@ID_CATEGORIA", tarefa.IdCategoria);
             comando.Parameters.AddWithValue("@TITULO", tarefa.Titulo);
             comando.Parameters.AddWithValue("@DESCRICAO", tarefa.Descricao);
             comando.Parameters.AddWithValue("@DURACAO", tarefa.Duracao);
@@ -44,9 +41,9 @@ namespace Repository
             comando.CommandText = @"UPDATE tarefas SET id_usuario_responsavel = @ID_USUARIO_RESPONSAVEL, id_projeto = @ID_PROJETO,  id_categoria = @ID_CATEGORIA,
             titulo = @TITULO, descricao = @DESCRICAO, duracao = @DURACAO WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", tarefa.Id);
-            comando.Parameters.AddWithValue("@ID_USUARIO_RESPONSAVEL", tarefa.Id_Usuario_Responsavel);
-            comando.Parameters.AddWithValue("@ID_PROJETO", tarefa.Id_Projeto);
-            comando.Parameters.AddWithValue("@ID_CATEGORIA", tarefa.Id_Categoria);
+            comando.Parameters.AddWithValue("@ID_USUARIO_RESPONSAVEL", tarefa.IdUsuario);
+            comando.Parameters.AddWithValue("@ID_PROJETO", tarefa.IdProjeto);
+            comando.Parameters.AddWithValue("@ID_CATEGORIA", tarefa.IdCategoria);
             comando.Parameters.AddWithValue("@TITULO", tarefa.Titulo);
             comando.Parameters.AddWithValue("@DESCRICAO", tarefa.Descricao);
             comando.Parameters.AddWithValue("@DURACAO", tarefa.Duracao);
@@ -82,18 +79,18 @@ namespace Repository
             {
                 Tarefa tarefa = new Tarefa();
                 tarefa.Id = Convert.ToInt32(linha["TarefaId"]);
-                tarefa.Id_Usuario_Responsavel = Convert.ToInt32(linha["TarefaIdUsuarioResponsavel"]);
-                tarefa.Id_Projeto = Convert.ToInt32(linha["TarefaIdProjeto"]);
-                tarefa.Id_Categoria = Convert.ToInt32(linha["TarefaIdCategoria"]);
+                tarefa.IdUsuario = Convert.ToInt32(linha["TarefaIdUsuarioResponsavel"]);
+                tarefa.IdProjeto = Convert.ToInt32(linha["TarefaIdProjeto"]);
+                tarefa.IdCategoria = Convert.ToInt32(linha["TarefaIdCategoria"]);
                 tarefa.Titulo = linha["TarefaTitulo"].ToString();
                 tarefa.Descricao = linha["TarefaDescricao"].ToString();
                 tarefa.Duracao = Convert.ToDateTime(linha["TarefaDuracao"]);
-                tarefa.usuario = new Usuario();
-                tarefa.projeto = new Projeto();
-                tarefa.categoria = new Categoria();
-                tarefa.usuario.Nome = linha["UsuarioNome"].ToString();
-                tarefa.projeto.Nome = linha["ProjetoNome"].ToString();
-                tarefa.categoria.Nome = linha["CategoriaNome"].ToString();
+                tarefa.Usuario = new Usuario();
+                tarefa.Projeto = new Projeto();
+                tarefa.Categoria = new Categoria();
+                tarefa.Usuario.Nome = linha["UsuarioNome"].ToString();
+                tarefa.Projeto.Nome = linha["ProjetoNome"].ToString();
+                tarefa.Categoria.Nome = linha["CategoriaNome"].ToString();
                 tarefas.Add(tarefa);
             }
             return tarefas;
@@ -132,18 +129,18 @@ namespace Repository
             DataRow linha = tabela.Rows[0];
             Tarefa tarefa = new Tarefa();
             tarefa.Id = Convert.ToInt32(linha["TarefaId"]);
-            tarefa.Id_Usuario_Responsavel = Convert.ToInt32(linha["TarefaIdUsuarioResponsavel"]);
-            tarefa.Id_Projeto = Convert.ToInt32(linha["TarefaIdProjeto"]);
-            tarefa.Id_Categoria = Convert.ToInt32(linha["TarefaIdCategoria"]);
+            tarefa.IdUsuario = Convert.ToInt32(linha["TarefaIdUsuarioResponsavel"]);
+            tarefa.IdProjeto = Convert.ToInt32(linha["TarefaIdProjeto"]);
+            tarefa.IdCategoria = Convert.ToInt32(linha["TarefaIdCategoria"]);
             tarefa.Titulo = linha["TarefaTitulo"].ToString();
             tarefa.Descricao = linha["TarefaDescricao"].ToString();
             tarefa.Duracao = Convert.ToDateTime(linha["TarefaDuracao"]);
-            tarefa.usuario = new Usuario();
-            tarefa.projeto = new Projeto();
-            tarefa.categoria = new Categoria();
-            tarefa.usuario.Nome = linha["UsuarioNome"].ToString();
-            tarefa.projeto.Nome = linha["ProjetoNome"].ToString();
-            tarefa.categoria.Nome = linha["CategoriaNome"].ToString();
+            tarefa.Usuario = new Usuario();
+            tarefa.Projeto = new Projeto();
+            tarefa.Categoria = new Categoria();
+            tarefa.Usuario.Nome = linha["UsuarioNome"].ToString();
+            tarefa.Projeto.Nome = linha["ProjetoNome"].ToString();
+            tarefa.Categoria.Nome = linha["CategoriaNome"].ToString();
 
             return tarefa;
         }

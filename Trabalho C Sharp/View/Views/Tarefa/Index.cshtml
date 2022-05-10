@@ -27,26 +27,15 @@
             <th>Ação</th>
         </tr>
     </thead>
-    <tfoot>
-        <tr>
-            <th>Código</th>
-            <th>Usuário</th>
-            <th>Projeto</th>
-            <th>Categoria</th>
-            <th>Título</th>
-            <th>Descrição</th>
-            <th>Duração</th>
-            <th>Ação</th>
-        </tr>
-    </tfoot>
+
     <tbody>
         @foreach(Model.Tarefa tarefa in ViewBag.Tarefas)
         {
             <tr>
                 <td>@tarefa.Id</td>
-                <td>@tarefa.usuario.Nome</td>
-                <td>@tarefa.projeto.Nome</td>
-                <td>@tarefa.categoria.Nome</td>
+                <td>@tarefa.Usuario.Nome</td>
+                <td>@tarefa.Projeto.Nome</td>
+                <td>@tarefa.Categoria.Nome</td>
                 <td>@tarefa.Titulo</td>
                 <td>@tarefa.Descricao</td>
                 <td>@tarefa.Duracao</td>
